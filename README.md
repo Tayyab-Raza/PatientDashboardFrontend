@@ -1,12 +1,53 @@
-# React + Vite
+# Patient Health Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A comprehensive React-based frontend application for managing patient health records and medical information.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Authentication System**
+  - User login and registration
+  - Secure token-based authentication
 
-## Expanding the ESLint configuration
+- **Dashboard Overview**
+  - Centralized view of patient health information
+  - Quick access to all medical records
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Health Tracking**
+  - Weight progress monitoring
+  - Medical history records
+  - Lab reports management
+  - Prescription tracking
+
+- **Appointment Management**
+  - View and manage medical appointments
+  - Shipment tracking for medical supplies
+
+## Tech Stack
+
+- React + Vite
+- Tailwind CSS for styling
+- Axios for API communication
+
+## Project Structure
+
+```plaintext
+src/
+  ├── components/
+  │   ├── auth/        # Authentication components
+  │   ├── common/      # Shared components
+  │   ├── dashboard/   # Dashboard components
+  │   └── layout/      # Layout components
+  ├── context/
+  │   └── AuthContext  # Authentication context
+  ├── pages/
+  │   ├── Appointments.jsx
+  │   ├── Dashboard.jsx
+  │   ├── LabReports.jsx
+  │   ├── Login.jsx
+  │   ├── MedicalHistory.jsx
+  │   ├── Prescriptions.jsx
+  │   ├── Shipments.jsx
+  │   └── WeightProgress.jsx
+  └── services/
+      ├── api.js       # API configuration
+      └── auth.js      # Authentication services
