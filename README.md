@@ -51,3 +51,35 @@ src/
   └── services/
       ├── api.js       # API configuration
       └── auth.js      # Authentication services
+```
+
+
+## Getting Started
+1. Clone the repository
+2. Install dependencies:
+```json
+bash
+1 npm install
+```
+3. Create a .env file in the root directory with:
+```json
+VITE_BASE_URL=your_backend_api_url
+```
+4. Start the development server:
+```json
+bash
+1 npm run dev
+```
+
+## Environment Variables
+- VITE_BASE_URL : Backend API URL
+## Deployment
+The application is configured for deployment on Netlify.
+
+## Backend Integration
+The frontend integrates with a REST API backend for:
+
+- User authentication
+- Medical records management
+- Appointment scheduling
+- Shipment tracking
