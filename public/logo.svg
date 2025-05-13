@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="32" cy="32" r="30" fill="#2563EB" opacity="0.1"/>
+  
+  <!-- Outer Ring -->
+  <circle cx="32" cy="32" r="28" stroke="#2563EB" stroke-width="2" stroke-dasharray="4 2"/>
+  
+  <!-- Heart Monitor Line -->
+  <path d="M16 32h8l4-8 4 16 4-8h12" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Cross Symbol -->
+  <path d="M32 20v24M20 32h24" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-opacity="0.5"/>
+  
+  <!-- Pulse Dot -->
+  <circle cx="48" cy="32" r="3" fill="#2563EB">
+    <animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>
