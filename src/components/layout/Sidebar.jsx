@@ -11,7 +11,8 @@ const Sidebar = () => {
     { name: 'Appointments', path: '/appointments' },
     { name: 'Medical History', path: '/medical-history' },
     { name: 'Lab Reports', path: '/lab-reports' },
-    { name: 'Shipments', path: '/shipments' }
+    { name: 'Shipments', path: '/shipments' },
+    { name: 'BMI Calculator', path: '/bmicalc' }
   ];
 
   return (

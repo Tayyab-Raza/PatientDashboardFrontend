@@ -11,6 +11,7 @@ import MedicalHistory from './pages/MedicalHistory';
 import LabReports from './pages/LabReports';
 import Shipments from './pages/Shipments';
 import { ThemeProvider } from './context/ThemeContext';
+import BMICalci from './pages/BMICalci';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               <Route path="/medical-history" element={<MedicalHistory />} />
               <Route path="/lab-reports" element={<LabReports />} />
               <Route path="/shipments" element={<Shipments />} />
+              <Route path="/bmicalc" element={<BMICalci />} />
             </Route>
           </Routes>
         </Router>
