@@ -10,26 +10,29 @@ import Appointments from './pages/Appointments';
 import MedicalHistory from './pages/MedicalHistory';
 import LabReports from './pages/LabReports';
 import Shipments from './pages/Shipments';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/signup" element={<SignupForm />} />
-          <Route path="/login" element={<Login />} />
-          <Route element={<ProtectedRoute />}>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/weight-progress" element={<WeightProgress />} />
-            <Route path="/prescriptions" element={<Prescriptions />} />
-            <Route path="/appointments" element={<Appointments />} />
-            <Route path="/medical-history" element={<MedicalHistory />} />
-            <Route path="/lab-reports" element={<LabReports />} />
-            <Route path="/shipments" element={<Shipments />} />
-          </Route>
-        </Routes>
-      </Router>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <Router>
+          <Routes>
+            <Route path="/signup" element={<SignupForm />} />
+            <Route path="/login" element={<Login />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/weight-progress" element={<WeightProgress />} />
+              <Route path="/prescriptions" element={<Prescriptions />} />
+              <Route path="/appointments" element={<Appointments />} />
+              <Route path="/medical-history" element={<MedicalHistory />} />
+              <Route path="/lab-reports" element={<LabReports />} />
+              <Route path="/shipments" element={<Shipments />} />
+            </Route>
+          </Routes>
+        </Router>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

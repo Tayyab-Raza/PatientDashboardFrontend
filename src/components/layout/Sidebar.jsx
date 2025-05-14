@@ -1,6 +1,9 @@
 import { NavLink } from 'react-router-dom';
+import { useTheme } from '../../context/ThemeContext';
 
 const Sidebar = () => {
+  const { isDark } = useTheme();
+
   const navigation = [
     { name: 'Dashboard', path: '/' },
     { name: 'Weight Progress', path: '/weight-progress' },
@@ -12,9 +15,9 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="h-full bg-dark-200/50 backdrop-blur-md shadow-lg w-64 fixed left-0 top-0 bottom-0 border-r border-gray-800">
+    <div className={`hidden lg:block fixed left-0 top-0 bottom-0 w-64 pt-20 ${isDark ? 'bg-dark-200/50' : 'bg-light-200/50'} backdrop-blur-md shadow-lg border-r ${isDark ? 'border-gray-800' : 'border-gray-200'}`}>
       <div className="p-4">
-        <h2 className="text-lg font-semibold text-gray-100">Menu</h2>
+        <h2 className={`text-lg font-semibold ${isDark ? 'text-gray-100' : 'text-gray-900'}`}>Menu</h2>
         <nav className="mt-4 space-y-2">
           {navigation.map((item) => (
             <NavLink
@@ -23,7 +26,9 @@ const Sidebar = () => {
               className={({ isActive }) =>
                 `block px-4 py-2 rounded-md ${isActive
                   ? 'bg-primary-600 text-white'
-                  : 'text-gray-300 hover:bg-dark-100/50 hover:text-white'}`
+                  : isDark
+                    ? 'text-gray-300 hover:bg-dark-100/50 hover:text-white'
+                    : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'}`
               }
             >
               {item.name}

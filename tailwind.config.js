@@ -25,6 +25,11 @@ export default {
           100: '#1a1b1e',
           200: '#141517',
           300: '#0c0d0e'
+        },
+        light: {
+          100: '#ffffff',
+          200: '#f9fafb',
+          300: '#f3f4f6'
         }
       },
       backdropBlur: {

@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { useTheme } from '../../context/ThemeContext';
+import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 import { login } from '../../services/auth';
 
 const LoginForm = () => {
+  const { isDark, toggleTheme } = useTheme();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -22,10 +25,22 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-dark-300 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-dark-200/50 backdrop-blur-md p-8 rounded-lg border border-gray-800">
+    <div className={`min-h-screen flex items-center justify-center ${isDark ? 'bg-dark-300' : 'bg-light-300'} py-12 px-4 sm:px-6 lg:px-8`}>
+      {/* Theme Toggle Button */}
+      <button
+        onClick={toggleTheme}
+        className={`fixed top-4 right-4 p-2 rounded-lg ${isDark ? 'bg-dark-200 hover:bg-dark-100' : 'bg-light-200 hover:bg-light-100'}`}
+      >
+        {isDark ? (
+          <SunIcon className="h-6 w-6 text-gray-400 hover:text-gray-100" />
+        ) : (
+          <MoonIcon className="h-6 w-6 text-gray-600 hover:text-gray-900" />
+        )}
+      </button>
+
+      <div className={`max-w-md w-full space-y-8 ${isDark ? 'bg-dark-200/50' : 'bg-light-200/50'} backdrop-blur-md p-8 rounded-lg border ${isDark ? 'border-gray-800' : 'border-gray-200'}`}>
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-100">
+          <h2 className={`mt-6 text-center text-3xl font-extrabold ${isDark ? 'text-gray-100' : 'text-gray-900'}`}>
             Sign in to your account
           </h2>
         </div>
@@ -40,7 +55,7 @@ const LoginForm = () => {
               <input
                 type="email"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-700 bg-dark-100/50 placeholder-gray-400 text-gray-100 rounded-t-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
+                className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${isDark ? 'border-gray-700 bg-dark-100/50' : 'border-gray-300 bg-light-100/50'} ${isDark ? 'placeholder-gray-400 text-gray-100' : 'placeholder-gray-500 text-gray-900'} rounded-t-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm`}
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -50,7 +65,7 @@ const LoginForm = () => {
               <input
                 type="password"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-700 bg-dark-100/50 placeholder-gray-400 text-gray-100 rounded-b-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
+                className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${isDark ? 'border-gray-700 bg-dark-100/50' : 'border-gray-300 bg-light-100/50'} ${isDark ? 'placeholder-gray-400 text-gray-100' : 'placeholder-gray-500 text-gray-900'} rounded-b-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm`}
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -67,7 +82,7 @@ const LoginForm = () => {
             </button>
           </div>
           <div className="text-sm text-center mt-4">
-            <span className="text-gray-400">Don't have an account? </span>
+            <span className={isDark ? 'text-gray-400' : 'text-gray-600'}>Don't have an account? </span>
             <a href="/signup" className="font-medium text-primary-500 hover:text-primary-400">
               Sign up
             </a>
